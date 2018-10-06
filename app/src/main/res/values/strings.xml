@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UEU 2</string>
+    <string name="welcome">Contoh Program Kotlin + Anko + Kotlin Extension</string>
+    <string name="klik_sadja"><![CDATA[<- Klik Sadja]]></string>
+</resources>
