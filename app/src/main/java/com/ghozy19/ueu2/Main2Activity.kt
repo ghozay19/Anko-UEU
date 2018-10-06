@@ -27,7 +27,7 @@ class Main2Activity : AppCompatActivity() {
 
             var input1 = editText {
                 hint = "isi angka"
-
+                inputType = android.text.InputType.TYPE_CLASS_NUMBER
             }.lparams {
                 width = matchParent
                 height = wrapContent
@@ -48,7 +48,7 @@ class Main2Activity : AppCompatActivity() {
             var hasilAkhir = textView {
                 text = "99"
                 textSize = 20f
-               textAlignment = View.TEXT_ALIGNMENT_CENTER
+                textAlignment = View.TEXT_ALIGNMENT_CENTER
             }.lparams {
                 width = matchParent
                 height = wrapContent
@@ -61,15 +61,19 @@ class Main2Activity : AppCompatActivity() {
 
                 onClick {
 
+                    if (input1.text.isEmpty()) {
+                        input1.setError("nilai bulum di isi")
+                    } else if (input2.text.isEmpty()) {
+                        input2.setError("nilai belum di isi")
+                    } else {
+
                     var convert1 = input1.text.toString().toDouble()
                     var convert2 = input2.text.toString().toDouble()
 
                     var hasil = convert1 + convert2
-
                     toast(hasil.toString())
-
                     hasilAkhir.setText(hasil.toString())
-
+                    }
                 }
             }
 
@@ -77,16 +81,20 @@ class Main2Activity : AppCompatActivity() {
                 text = "kurangi"
 
                 onClick {
+                    if (input1.text.isEmpty()) {
+                        input1.setError("nilai bulum di isi")
+                    } else if (input2.text.isEmpty()) {
+                        input2.setError("nilai belum di isi")
+                    } else {
+                        var convert1 = input1.text.toString().toDouble()
+                        var convert2 = input2.text.toString().toDouble()
 
-                    var convert1 = input1.text.toString().toDouble()
-                    var convert2 = input2.text.toString().toDouble()
+                        var hasil = convert1 - convert2
 
-                    var hasil = convert1 - convert2
+                        toast(hasil.toString())
 
-                    toast(hasil.toString())
-
-                    hasilAkhir.setText(hasil.toString())
-
+                        hasilAkhir.setText(hasil.toString())
+                    }
                 }
             }
 
@@ -94,16 +102,20 @@ class Main2Activity : AppCompatActivity() {
                 text = "bagi"
 
                 onClick {
+                    if (input1.text.isEmpty()) {
+                        input1.setError("nilai bulum di isi")
+                    } else if (input2.text.isEmpty()) {
+                        input2.setError("nilai belum di isi")
+                    } else {
+                        var convert1 = input1.text.toString().toDouble()
+                        var convert2 = input2.text.toString().toDouble()
 
-                    var convert1 = input1.text.toString().toDouble()
-                    var convert2 = input2.text.toString().toDouble()
+                        var hasil = convert1 / convert2
 
-                    var hasil = convert1 / convert2
+                        toast(hasil.toString())
 
-                    toast(hasil.toString())
-
-                    hasilAkhir.setText(hasil.toString())
-
+                        hasilAkhir.setText(hasil.toString())
+                    }
                 }
             }
 
@@ -111,16 +123,30 @@ class Main2Activity : AppCompatActivity() {
                 text = "Kali"
 
                 onClick {
+                    if (input1.text.isEmpty()) {
+                        input1.setError("nilai bulum di isi")
+                    } else if (input2.text.isEmpty()) {
+                        input2.setError("nilai belum di isi")
+                    } else {
+                        var convert1 = input1.text.toString().toDouble()
+                        var convert2 = input2.text.toString().toDouble()
 
-                    var convert1 = input1.text.toString().toDouble()
-                    var convert2 = input2.text.toString().toDouble()
+                        var hasil = convert1 * convert2
 
-                    var hasil = convert1 * convert2
+                        toast(hasil.toString())
 
-                    toast(hasil.toString())
+                        hasilAkhir.setText(hasil.toString())
+                    }
+                }
+            }
 
-                    hasilAkhir.setText(hasil.toString())
+            button {
+                text = "Clear All"
 
+                onClick {
+                    input1.setText("")
+                    input2.setText("")
+                    hasilAkhir.setText("")
                 }
             }
 
